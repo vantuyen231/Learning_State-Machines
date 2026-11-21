@@ -1,30 +1,33 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
-public class ChestView : MonoBehaviour
+namespace StateMachines.ChestExample
 {
-    [SerializeField] private Animator _anim;
-    public event Action OnClick;
-
-    private void Awake()
+    [RequireComponent(typeof(BoxCollider2D))]
+    public class ChestView : MonoBehaviour
     {
-        _anim = GetComponent<Animator>();
-    }
+        [SerializeField] private Animator _anim;
+        public event Action OnClick;
 
-    public void OnMouseDown()
-    {
-        Debug.Log("Clicked Chest");
-        OnClick?.Invoke();
-    }
+        private void Awake()
+        {
+            _anim = GetComponent<Animator>();
+        }
 
-    public void OpenChest()
-    {
-        _anim.SetTrigger("Open");
-    }
+        public void OnMouseDown()
+        {
+            Debug.Log("Clicked Chest");
+            OnClick?.Invoke();
+        }
 
-    public void CloseChest()
-    {
-        _anim.SetTrigger("Close");
+        public void OpenChest()
+        {
+            _anim.SetTrigger("Open");
+        }
+
+        public void CloseChest()
+        {
+            _anim.SetTrigger("Close");
+        }
     }
 }

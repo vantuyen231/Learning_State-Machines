@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestController
   _chestView: {fileID: 0}
+  _isClose: 0
 --- !u!114 &792182552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c644a396d1aee49a116f901bb1ce46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestView
+  _anim: {fileID: 0}
 --- !u!61 &792182553
 BoxCollider2D:
   m_ObjectHideFlags: 0
