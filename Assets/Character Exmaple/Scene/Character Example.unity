@@ -634,6 +634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMachines.CharacterExample.CharacterController
   <ActionReader>k__BackingField:
     <MoveAction>k__BackingField: {x: 0, y: 0}
+  <Movement>k__BackingField:
+    <Rigidbody>k__BackingField: {fileID: 0}
+    isFlip: 0
+  <Animator>k__BackingField: {fileID: 2064918529}
 --- !u!1 &2064918527
 GameObject:
   m_ObjectHideFlags: 0
