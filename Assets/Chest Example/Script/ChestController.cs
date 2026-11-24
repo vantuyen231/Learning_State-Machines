@@ -3,41 +3,37 @@ using UnityEngine;
 namespace StateMachines.ChestExample
 {
     [RequireComponent(typeof(ChestView))]
-    public class ChestController : MonoBehaviour
+    public partial class ChestController : MonoBehaviour
     {
-        [SerializeField] private ChestView _chestView;
-        [SerializeField] private bool _isClose;
+        [field: SerializeField] public StateMachine StateMachine { get; private set; }
+        [field: SerializeField] public ChestView View { get; private set; }
 
         private void Awake()
         {
-            _chestView = GetComponent<ChestView>();
-            _isClose = true;
+            StateMachine = new StateMachine();
+            StateMachine.AddState(ChestState.CLOSED.ToString(), new ChestStateClosed(this));
+            StateMachine.AddState(ChestState.OPEN.ToString(), new ChestStateOpen(this));
+            View = GetComponent<ChestView>();
         }
 
-
-        private void OnEnable()
+        private void Start()
         {
-            _chestView.OnClick += OnClicked;
+            StateMachine.ChangeState(ChestState.CLOSED.ToString());
         }
 
-        private void OnDisable()
+        private void Update()
         {
-            _chestView.OnClick -= OnClicked;
+            StateMachine.Update();
         }
 
-        private void OnClicked()
+        public void Open()
         {
-            Debug.Log("Clicked");
-            if (_isClose)
-            {
-                _chestView.OpenChest();
-                _isClose = false;
-            }
-            else
-            {
-                _chestView.CloseChest();
-                _isClose = true;
-            }
+            View.OpenChest();
+        }
+
+        public void Closed()
+        {
+            View.CloseChest();
         }
     }
 }

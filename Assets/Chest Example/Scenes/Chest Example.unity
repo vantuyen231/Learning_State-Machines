@@ -517,11 +517,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792182550}
+  - component: {fileID: 792182551}
+  - component: {fileID: 792182552}
   - component: {fileID: 792182549}
   - component: {fileID: 792182548}
   - component: {fileID: 792182553}
-  - component: {fileID: 792182552}
-  - component: {fileID: 792182551}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -636,9 +636,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4680b7f9ab2d004478de9e40b87cc292, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChestController
-  _chestView: {fileID: 0}
-  _isClose: 0
+  m_EditorClassIdentifier: Assembly-CSharp::StateMachines.ChestExample.ChestController
+  <StateMachine>k__BackingField:
+    _currentStateName: 
+  <View>k__BackingField: {fileID: 0}
 --- !u!114 &792182552
 MonoBehaviour:
   m_ObjectHideFlags: 0
