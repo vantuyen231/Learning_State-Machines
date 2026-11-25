@@ -1,13 +1,13 @@
-using System.IO;
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.ProjectWindowCallback;
-using UnityEngine;
+using System.IO;
 
-namespace StateMachines
+namespace StateMachines.Templates
 {
     public class CreateStateScriptUtility
     {
-        [MenuItem("Asset/Create/Scripting/State", false, 8)]
+        [MenuItem("Assets/Create/Scripting/State", false, 80)]
         public static void CreateState()
         {
             string templatePath = "Assets/Utils/StateMachines/StateScriptTemplate.cs.txt";
