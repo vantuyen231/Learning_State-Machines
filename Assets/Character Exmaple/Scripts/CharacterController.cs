@@ -4,6 +4,7 @@ namespace StateMachines.CharacterExample
 {
     public class CharacterController : MonoBehaviour
     {
+        [field: SerializeField] public CharacterProperties characterProperties { get; private set; }
         [field: SerializeField] public CharacterActionReader ActionReader { get; private set; }
         [field: SerializeField] public CharacterMovement Movement { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
@@ -11,7 +12,7 @@ namespace StateMachines.CharacterExample
 
         private void Awake()
         {
-            Movement = new CharacterMovement(GetComponent<Rigidbody2D>());
+            Movement = new CharacterMovement(characterProperties, GetComponent<Rigidbody2D>());
             StateMachine = new StateMachine();
 
             StateMachine.AddState(CharacterStates.IDLE.ToString(), new IdleState(this));

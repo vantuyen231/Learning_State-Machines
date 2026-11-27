@@ -6,11 +6,13 @@ namespace StateMachines.CharacterExample
     [Serializable]
     public class CharacterMovement
     {
+        [field: SerializeField] public float walkSpeed { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; }
         [field: SerializeField] public bool isFlip = false;
 
-        public CharacterMovement(Rigidbody2D rigidbody)
+        public CharacterMovement(CharacterProperties characterProperties, Rigidbody2D rigidbody)
         {
+            walkSpeed = characterProperties.walkSpeed;
             Rigidbody = rigidbody;
         }
 
